@@ -6,29 +6,15 @@
     <title>BHive - Marketing Digital com Alma de Fandom</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-        .gradient-bg { background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%); }
-        .hero-gradient { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
-        .card-hover { transition: all 0.3s ease; }
-        .card-hover:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-        .animate-fade-in { animation: fadeIn 0.8s ease-out; }
-        .animate-slide-up { animation: slideUp 0.8s ease-out; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        .scroll-reveal {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        .scroll-reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="bg-white text-gray-900 antialiased">
-    <!-- HEADER -->
+
+    <!--
+    =============================================
+    HEADER
+    =============================================
+    -->
     <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
@@ -56,7 +42,7 @@
                     <a href="#contato" class="hidden md:inline-flex items-center px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-full transition-colors shadow-lg">
                         Fale Conosco
                     </a>
-                    <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors" aria-label="Open menu">
+                    <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M3 12h18M3 6h18M3 18h18"></path>
                         </svg>
@@ -78,7 +64,11 @@
         </div>
     </header>
 
-    <!-- HERO SECTION -->
+    <!--
+    =============================================
+    HERO SECTION
+    =============================================
+    -->
     <section class="relative overflow-hidden bg-gradient-to-br from-gray-50 to-white">
         <div class="max-w-7xl mx-auto px-6 pt-20 pb-16 lg:pt-32 lg:pb-20">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -173,7 +163,11 @@
         </div>
     </section>
 
-    <!-- QUEM SOMOS -->
+    <!--
+    =============================================
+    QUEM SOMOS
+    =============================================
+    -->
     <section id="quem" class="pt-16 lg:pt-20 pb-16 bg-white scroll-reveal">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
@@ -217,7 +211,11 @@
         </div>
     </section>
 
-    <!-- SERVIÇOS -->
+    <!--
+    =============================================
+    SERVIÇOS
+    =============================================
+    -->
     <section id="servicos" class="py-16 bg-gray-50 scroll-reveal">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
@@ -285,7 +283,11 @@
         </div>
     </section>
 
-    <!-- CONTATO -->
+    <!--
+    =============================================
+    CONTATO
+    =============================================
+    -->
     <section id="contato" class="py-16 bg-white scroll-reveal">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
@@ -300,7 +302,11 @@
                 <div class="bg-gray-50 p-8 lg:p-12 rounded-3xl">
                     <h3 class="text-2xl font-bold text-gray-900 mb-8">Envie sua mensagem</h3>
                     
-                    <form class="space-y-6" action="SUA_URL_EXCLUSIVA_DO_FORMSPREE" method="POST">
+                    <!--
+                        Para o formulário funcionar, substitua a URL abaixo pela sua URL exclusiva do Formspree.
+                        Você pode criar uma conta gratuita em https://formspree.io/
+                    -->
+                    <form class="space-y-6" action="https://formspree.io/f/YOUR_UNIQUE_ID" method="POST">
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             <div>
                                 <label for="name" class="block text-sm font-semibold text-gray-700 mb-2">Nome</label>
@@ -381,7 +387,11 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <!--
+    =============================================
+    FOOTER
+    =============================================
+    -->
     <footer class="bg-gray-900 text-white py-12">
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex flex-col md:flex-row items-center justify-between">
@@ -403,65 +413,6 @@
         </div>
     </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Mobile menu toggle
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-
-            // Close mobile menu when a link is clicked
-            document.querySelectorAll('#mobile-menu a').forEach(anchor => {
-                anchor.addEventListener('click', function() {
-                    mobileMenu.classList.add('hidden');
-                });
-            });
-
-            // A função abaixo foi removida pois o envio do formulário será gerenciado pelo Formspree.
-            // window.handleSubmit = function(event) {
-            //     event.preventDefault();
-            //     
-            //     const formData = new FormData(event.target);
-            //     const data = Object.fromEntries(formData.entries());
-            //     console.log('Form Data:', data);
-            //     
-            //     alert('Obrigada pela sua mensagem! Entraremos em contato em breve. 💜');
-            //     
-            //     event.target.reset();
-            // }
-
-            // Add scroll effect to header
-            window.addEventListener('scroll', function() {
-                const header = document.querySelector('header');
-                if (window.scrollY > 50) {
-                    header.classList.add('shadow-lg');
-                } else {
-                    header.classList.remove('shadow-lg');
-                }
-            });
-
-            // Animate elements on scroll
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-
-            const observer = new IntersectionObserver(function(entries, observer) {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        observer.unobserve(entry.target); // Optional: stop observing once visible
-                    }
-                });
-            }, observerOptions);
-
-            // Observe all elements with the .scroll-reveal class
-            document.querySelectorAll('.scroll-reveal').forEach(el => {
-                observer.observe(el);
-            });
-        });
-    </script>
+    <script src="js/main.js"></script>
 </body>
 </html>
